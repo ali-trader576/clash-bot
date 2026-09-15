@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>حرب القرى</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+
+  <div id="loading-screen">
+    <div class="loading-castle">🏰</div>
+    <div class="loading-text">جارٍ بناء قريتك...</div>
+  </div>
+
+  <div id="app" class="hidden">
+
+    <header class="resource-bar">
+      <div class="resource">
+        <span class="resource-icon">💰</span>
+        <span class="resource-value" id="gold-value">0</span>
+      </div>
+      <div class="resource">
+        <span class="resource-icon">🧪</span>
+        <span class="resource-value" id="elixir-value">0</span>
+      </div>
+      <div class="resource">
+        <span class="resource-icon">🏆</span>
+        <span class="resource-value" id="trophies-value">0</span>
+      </div>
+    </header>
+
+    <main class="village-scene" id="village-scene">
+      <div class="sky"></div>
+      <div class="sun"></div>
+      <div class="mountains"></div>
+      <div class="ground"></div>
+
+      <div class="building-layer" id="building-layer"></div>
+    </main>
+
+    <div id="building-panel" class="panel hidden">
+      <div class="panel-header">
+        <span id="panel-title">اسم المبنى</span>
+        <button id="panel-close" class="panel-close">✕</button>
+      </div>
+      <div class="panel-body">
+        <p id="panel-level"></p>
+        <p id="panel-cost"></p>
+        <button id="panel-action" class="action-btn">ترقية ⬆️</button>
+      </div>
+    </div>
+
+    <nav class="bottom-nav">
+      <button class="nav-btn active" data-view="village">
+        <span class="nav-icon">🏰</span>
+        <span class="nav-label">القرية</span>
+      </button>
+      <button class="nav-btn" data-view="train">
+        <span class="nav-icon">⚔️</span>
+        <span class="nav-label">التدريب</span>
+      </button>
+      <button class="nav-btn" data-view="attack">
+        <span class="nav-icon">🗡️</span>
+        <span class="nav-label">هجوم</span>
+      </button>
+      <button class="nav-btn" data-view="leaderboard">
+        <span class="nav-icon">🏆</span>
+        <span class="nav-label">المتصدرون</span>
+      </button>
+    </nav>
+
+    <div id="train-view" class="overlay-view hidden">
+      <div class="overlay-header">
+        <span>تدريب الجيش</span>
+        <button class="overlay-close" data-close="train-view">✕</button>
+      </div>
+      <div class="troop-list" id="troop-list"></div>
+    </div>
+
+    <div id="attack-view" class="overlay-view hidden">
+      <div class="overlay-header">
+        <span>هجوم</span>
+        <button class="overlay-close" data-close="attack-view">✕</button>
+      </div>
+      <div class="attack-content">
+        <p class="army-power-label">قوة جيشك: <span id="army-power">0</span> ⚔️</p>
+        <button id="attack-btn" class="action-btn big">ابحث عن هدف وهاجم 🗡️</button>
+        <div id="attack-result"></div>
+      </div>
+    </div>
+
+    <div id="leaderboard-view" class="overlay-view hidden">
+      <div class="overlay-header">
+        <span>لوحة المتصدرين</span>
+        <button class="overlay-close" data-close="leaderboard-view">✕</button>
+      </div>
+      <ol class="leaderboard-list" id="leaderboard-list"></ol>
+    </div>
+
+    <div id="toast" class="toast hidden"></div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+          </html>
