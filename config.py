@@ -4,4 +4,6 @@
 """
 import os
 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", "ضع_توكن_البوت_هنا")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+
+WEBAPP_URL = os.environ.get("WEBAPP_URL", "")
